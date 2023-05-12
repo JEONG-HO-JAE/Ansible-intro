@@ -1,0 +1,17 @@
+plugin: oracle.oci.oci
+
+config_file: ~/.oci/config
+
+regions:
+  - ap-seoul-1
+
+compartments:
+  - compartment_ocid: "ocid1.compartment.oc1..aaaaaaaasrwk6zqi2yf6x5xkueuxspt4q7u3fwbsdpudlocdbqjubrso342a"
+
+      
+default_groups: [] 
+
+keyed_groups:
+  - key: freeform_tags.os
+    prefix: oci
+    parent_group: oci

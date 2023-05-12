@@ -1,0 +1,17 @@
+plugin: vmware_vm_inventory
+strict: false
+hostname: 192.168.0.20
+port: 443
+username: administrator@zconverter.vmware.local
+password: Zconp@ssw0rd
+validate_certs: false
+with_tags: true
+hostnames: 
+  - guest.ipAddress
+filters:
+  - "'HOJAE' in config.name"
+  - "'tag_category.Ansible' is defined"
+keyed_groups:
+  - key: tag_category.os
+    prefix: vmware
+    parent_group: vmware

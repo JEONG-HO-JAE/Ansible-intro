@@ -1,0 +1,24 @@
+# aws ec2 ansible dynamic inventory plugin
+plugin: aws_ec2
+
+# set aws_key pair
+aws_access_key: AKIATTIXUBX2XSNVWVM4
+aws_secret_key: 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
+
+# set the regions
+regions:
+- ap-northeast-2
+
+hostnames:
+  - name: "ip-address"
+    prefix:  '' 
+
+keyed_groups:
+  - prefix: AWS
+    key: tags.os
+    parent_group: AWS
+
+# compose
+compose:
+  ip : public_ip_address
+

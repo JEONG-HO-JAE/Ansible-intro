@@ -1,0 +1,16 @@
+plugin: azure.azcollection.azure_rm
+auth_source: auto
+groups:
+  azure: all
+
+hostnames:
+  - public_ipv4_addresses[0]
+
+keyed_groups:
+  - prefix: Azure
+    key: tags.os
+    parent_group: Azure
+
+hostvar_expressions:
+  ip: public_ipv4_addresses[0]
+

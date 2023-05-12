@@ -1,0 +1,17 @@
+plugin: gcp_compute
+projects:
+  - practiciac
+service_account_file: /home/hojae/ansible/key/practiciac-e760fc1213f5.json
+auth_kind: serviceaccount
+
+hostnames:
+  - public_ip
+
+keyed_groups:
+  - prefix: GCP
+    key: labels.os
+    parent_group: GCP
+
+compose:
+  ip : networkInterfaces[0].accessConfigs[0].natIP
+
