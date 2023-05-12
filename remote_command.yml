@@ -1,0 +1,181 @@
+---
+- name: AWS LINUX SECTION
+  hosts: AWS_Linux
+  remote_user: ec2-user
+  gather_facts: no
+
+  vars:
+    ansible_ssh_private_key_file: /home/hojae/ansible/key/azureNawsNoci_key
+
+  tasks:
+    - name: remote command
+      shell: "uname -a"
+      register: uname
+    - debug: var=uname.stdout_lines
+
+    - name: hostname command
+      shell: "hostname"
+      register: hostname
+    - debug: var=hostname.stdout_lines
+
+
+
+- name: AWS Windows SECTION
+  hosts: AWS_Windows
+  gather_facts: no
+
+  vars:
+    ansible_user: Administrator
+    ansible_password: Ghwo1916037!#%
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+
+  tasks:
+    - name: run shell
+      win_shell: |
+        hostname
+      register: command_output
+    - name: command_output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
+
+
+
+- name: Azure LINUX SECTION
+  hosts: Azure_Linux
+  remote_user: hojae
+  gather_facts: no
+
+  vars:
+    ansible_ssh_private_key_file: /home/hojae/ansible/key/azureNawsNoci_key
+
+  tasks:
+    - name: remote command
+      shell: "uname -a"
+      register: uname
+    - debug: var=uname.stdout_lines
+
+    - name: hostname command
+      shell: "hostname"
+      register: hostname
+    - debug: var=hostname.stdout_lines
+
+
+- name: Azure WINDOW SECTION
+  hosts: Azure_Windows
+  gather_facts: no
+
+  vars:
+    ansible_user: hojae
+    ansible_password: Ghwo1916037!#%
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+
+  tasks:
+    - name: run shell
+      win_shell: |
+        hostname
+      register: command_output
+    - name: command_output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
+
+
+
+- name: GCP Linux SECTION
+  hosts: GCP_linux
+  remote_user: hjeong30
+  gather_facts: no
+
+  vars:
+    ansible_ssh_private_key_file: /home/hojae/ansible/key/gcp_key
+
+  tasks:
+    - name: remote command
+      shell: "uname -a"
+      register: uname
+    - debug: var=uname.stdout_lines
+
+    - name: hostname command
+      shell: "hostname"
+      register: hostname
+    - debug: var=hostname.stdout_lines
+
+
+- name: OCI Linux SECTION
+  hosts: oci_Linux
+  remote_user: opc
+  gather_facts: no
+
+  vars:
+    ansible_ssh_private_key_file: /home/hojae/ansible/key/azureNawsNoci_key
+
+  tasks:
+    - name: remote command
+      shell: "uname -a"
+      register: uname
+    - debug: var=uname.stdout_lines
+
+    - name: hostname command
+      shell: "hostname"
+      register: hostname
+    - debug: var=hostname.stdout_lines
+
+
+- name: OCI Winodw SECTION
+  hosts: oci_Windows
+  gather_facts: no
+
+  vars:
+    ansible_user: Administrator
+    ansible_password: Ghwo1916037!#%
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+
+  tasks:
+    - name: run shell
+      win_shell: |
+        hostname
+      register: command_output
+    - name: command_output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
+
+- name: VMware Linux SECTION
+  hosts: vmware_Linux
+  remote_user: hojae
+  gather_facts: no
+
+  vars:
+    ansible_ssh_private_key_file: /home/hojae/ansible/key/vmware_key
+
+  tasks:
+    - name: remote command
+      shell: "uname -a"
+      register: uname
+    - debug: var=uname.stdout_lines
+
+    - name: hostname command
+      shell: "hostname"
+      register: hostname
+    - debug: var=hostname.stdout_lines
+
+- name: VMware Winodw SECTION
+  hosts: vmware_Windows
+  gather_facts: no
+
+  vars:
+    ansible_user: Administrator
+    ansible_password: Ghwo1916037!#%
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+
+  tasks:
+    - name: run shell
+      win_shell: |
+        hostname
+      register: command_output
+    - name: command_output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
+
